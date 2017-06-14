@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* CSS Document */
+.demo{text-align: center;margin: 5px auto 15px;font-weight: 600}
+.demo a{color: #3D9CEB}
+.box{border: thin solid #070B49;margin: 0 auto}
+p{text-indent: 1rem}
