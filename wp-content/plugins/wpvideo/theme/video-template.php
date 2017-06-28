@@ -30,9 +30,9 @@ function strposX($haystack, $needle, $number)
 	
 	
 	$current_page=substr($_SERVER['REQUEST_URI'], (strlen(wp_make_link_relative(site_url('/')).urldecode(get_option( 'wp_video_relative_url','wp-video' )))-strlen($_SERVER['REQUEST_URI'])));
-	
+	//echo $current_page;
 	if (urldecode(get_option( 'wp_video_relative_url','wp-video' ))=='') $current_page='/'.$current_page;
-	if ($current_page==$_SERVER['REQUEST_URI']) { echo '<script>window.location = "'.$_SERVER['REQUEST_URI'].'/";</script>';}
+	//if ($current_page==$_SERVER['REQUEST_URI']) { echo '<script>window.location = "'.$_SERVER['REQUEST_URI'].'/";</script>';}
 	if ($current_page != '/' )
 	{
   if (substr($current_page,0,2) != '/?' and '/'.wp_make_link_relative(site_url('/'))!=$current_page)
@@ -373,7 +373,7 @@ ul.share-buttons li{
 
 
 </style>
-<div id="video">
+<div id="video" style="background: <?php echo urldecode(get_option( 'wp_color_picker_video_back','%23333333' )); ?> top left repeat-x;">
 <div id="video-inside">
 <div class="videoparts" id="v1">
 <?php 
@@ -448,7 +448,7 @@ $iframe_url_s=str_replace($iframe_url,$iframe_url.'?showinfo=0&rel=0&autohide=1'
 ?>
                                         
 <li>
-<a class="post-frame-carousel-video <?php echo $i; ?> inline" href="<?php echo site_url();?>/wp-admin/admin-ajax.php?action=youtube_iframe_out&url=<?php echo $iframe_url;?>" title="<?php echo $value_f->title; ?>"></a>
+<a class="post-frame-carousel-video <?php if (get_option( 'wp_video_popup','1' )) echo $i.' inline'; ?>" href="<?php echo (get_option( 'wp_video_popup','1' ) ? site_url().'/wp-admin/admin-ajax.php?action=youtube_iframe_out&url='.$iframe_url : $value_f->video_url);?>" title="<?php echo $value_f->title; ?>"></a>
 <img width="230" height="170" src="<?php echo $img ;?>" class="attachment-featured size-featured wp-post-image" alt="Car" srcset="" sizes="(max-width: 230px) 100vw, 230px">
 <?php if (get_option( 'wp_video_show_title_of_featured_videos','0' )=="1") echo '<h2 class="carousel-title"><a href="'.$value_f->video_url.'" title="'.$value_f->title.'">'.(strlen($value_f->title)>30 ? substr(html_entity_decode($value_f->title),0, 30).'...':$value_f->title).'</a></h2>';?>
 
@@ -562,7 +562,7 @@ $iframe_url_s=str_replace($iframe_url,$iframe_url.'?showinfo=0&rel=0&autohide=1'
 
 <div id="post-<?php echo $i; ?>" class="multiple post-<?php echo $i; ?> post type-post status-publish format-standard has-post-thumbnail hentry category-category category-sample-category category-sample-child-category category-sample-videos category-sub-category category-vimeo-videos">			
 <div class="post-image">
-<a class="post-frame-video <?php echo $i; ?> inline" href="<?php echo site_url();?>/wp-admin/admin-ajax.php?action=youtube_iframe_out&url=<?php echo $iframe_url;?>" title="<?php echo $value->title; ?>"></a>
+<a class="post-frame-video <?php if (get_option( 'wp_video_popup','1' )) echo $i.' inline'; ?>" href="<?php echo (get_option( 'wp_video_popup','1' ) ? site_url().'/wp-admin/admin-ajax.php?action=youtube_iframe_out&url='.$iframe_url : $value->video_url);?>" title="<?php echo $value->title; ?>"></a>
 												
 						<img width="230" height="170" src="<?php echo $img ;?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Car" srcset="" sizes="(max-width: 180px) 100vw, 180px">					</div>
 					
@@ -604,7 +604,7 @@ echo urldecode($banner_html["Side article banner"]).'
 		</div> <!-- sidebar -->		</div> <!-- content-inside -->
 	</div> <!-- content -->
 
-	<div id="footer">
+	<div id="footer" style="background: <?php echo urldecode(get_option( 'wp_color_picker_video_back','%23333333' )); ?>  top left repeat-x;">
 		<div id="footer-inside">
 						
 							<p><?php echo urldecode(get_option( 'wp_site_desing_text','Site Design by: wpvideosites' )); ?></p>
