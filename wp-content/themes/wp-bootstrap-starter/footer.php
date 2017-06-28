@@ -10,7 +10,7 @@
  */
 
 ?>
-<?php if(!is_page_template( 'blank-page.php' )): ?>
+<?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
 			</div><!-- .row -->
 		</div><!-- .container -->
 	</div><!-- #content -->
@@ -28,8 +28,9 @@
                 </div>
             </div>
           
-  <h3 class="copyright"><a href="http://websitetalkingheads.com/"><sup class='tm-small'>&#169;</sup>Website Talking Heads <?php echo date("Y")?>. All rights reserved.</a></h3>
-            </div><!-- close .site-info -->
+  <h3 class="copyright"><a href="http://seovideoexperts.com/"><sup class='tm-small'>&#169;</sup>SEO Video Experts <?php echo date("Y")?>. All rights reserved.</a></h3>
+           <h3><a href="http://talkingheads.com/affiliate/">Powered by Talkingheads<sup class='tm-small'>&#169;</sup></a></h3>
+          </div><!-- close .site-info -->
 		</div>
 	</footer><!-- #colophon -->
 <?php endif; ?>
