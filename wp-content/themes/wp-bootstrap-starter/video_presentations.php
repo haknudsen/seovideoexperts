@@ -25,7 +25,7 @@ $sql .= " ORDER BY RAND()";
 $result = $conn->query( $sql );
 
 if ( $result->num_rows > 0 ) {
-    echo '<div class="example-column">';
+    echo '<div class="row">';
     $x = 1;
 while($row = $result->fetch_assoc()) {
     $target = $row[ "target" ];
